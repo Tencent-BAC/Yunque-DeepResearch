@@ -12,8 +12,6 @@ from typing import List, Union
 from concurrent.futures import ThreadPoolExecutor
 import requests
 import tiktoken
-from file_tools.file_parser import SingleFileParser
-from file_tools.utils import get_basename_from_url
 from tool_file import FileParser
 from openai import OpenAI
 from prompt import EXTRACTOR_PROMPT
@@ -559,17 +557,8 @@ class Visit(BaseTool):
                     except Exception:
                         pass
                     
-                    # Retry using file parser for specific file types
-                    f_type = get_basename_from_url(url).split(".")[-1].lower()
-                    if f_type in ["pdf", "docx", "pptx", "txt", "html", "csv", "xlsx", "xls", "doc", "zip"]:
-                        try:
-                            result = SingleFileParser().call(json.dumps({"url": url}))
-                            messages = [{"role": "user", "content": EXTRACTOR_PROMPT_SHORT.format(webpage_content=result, goal=goal)}]
-                            raw = summary_page_func(messages, max_retries=max_retries)
-                            raw_json = json.loads(raw)
-                            break
-                        except Exception:
-                            pass
+                    # Skip file parser retry as file_tools is removed
+                    pass
                     
                     # Retry by fetch the summary content only
                     try:

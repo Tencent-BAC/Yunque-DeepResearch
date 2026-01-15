@@ -3,7 +3,7 @@
 ## Architecture
 
 <p align="center">
-  <img width="90%" src="./assets/framework-2.png">
+  <img width="90%" src="./assets/framework.png">
 </p>
 
 More details can be found in our Tech Report (Coming Soon).
@@ -22,8 +22,8 @@ This guide provides instructions for setting up the environment and running infe
 ### 1. Environment Setup
 
 ```bash
-conda create -n hivemind python=3.10.0
-conda activate hivemind
+conda create -n yunque-dr python=3.10.0
+conda activate yunque-dr
 pip install -r requirements.txt
 ```
 
@@ -91,10 +91,6 @@ Execute the inference script using the provided wrapper:
 ```bash
 bash run.sh
 ```
-
----
-
-With these steps, you can fully prepare the environment, configure the dataset, and run the model. For more details, consult the inline comments in each script or open an issue.
 
 ## Acknowledgement
 

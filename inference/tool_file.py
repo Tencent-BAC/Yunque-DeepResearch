@@ -2,7 +2,6 @@
 File Parser Module
 Supports parsing various file types: PDF, DOCX, PPTX, TXT, CSV, XLSX, ZIP, etc.
 """
-import sys
 import os
 import re
 import time
@@ -172,10 +171,9 @@ class FileParser:
                 res['redirect_url'] = raw_download_url
                 
                 # Extract filename and extension from raw download URL
-                from file_tools.utils import get_basename_from_url
-                filename = get_basename_from_url(raw_download_url)
+                filename = os.path.basename(urllib.parse.urlparse(raw_download_url).path)
                 if filename:
-                    res['file_name'] = filename
+                    res['file_name'] = urllib.parse.unquote(filename).strip()
                 
                 ext = FileParser._extract_extension_from_url(raw_download_url)
                 if ext:
@@ -203,10 +201,9 @@ class FileParser:
                     res['url_type'] = 'file'
                     
                     # Try to extract filename from URL
-                    from file_tools.utils import get_basename_from_url
-                    filename = get_basename_from_url(url)
+                    filename = os.path.basename(urllib.parse.urlparse(url).path)
                     if filename:
-                        res['file_name'] = filename
+                        res['file_name'] = urllib.parse.unquote(filename).strip()
                     
                     if ext:
                         res['file_type'] = ext
@@ -226,10 +223,9 @@ class FileParser:
                 res['file_type'] = url_ext
                 
                 # Extract filename from URL
-                from file_tools.utils import get_basename_from_url
-                filename = get_basename_from_url(url)
+                filename = os.path.basename(urllib.parse.urlparse(url).path)
                 if filename:
-                    res['file_name'] = filename
+                    res['file_name'] = urllib.parse.unquote(filename).strip()
                 
                 response.close()
                 return res
