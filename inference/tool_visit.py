@@ -557,9 +557,6 @@ class Visit(BaseTool):
                     except Exception:
                         pass
                     
-                    # Skip file parser retry as file_tools is removed
-                    pass
-                    
                     # Retry by fetch the summary content only
                     try:
                         start_marker = '"summary": "'

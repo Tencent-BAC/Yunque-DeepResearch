@@ -3,11 +3,8 @@ import os
 import json
 from concurrent.futures import ThreadPoolExecutor
 from typing import List, Union
-import requests
 from base_tool import BaseTool, register_tool
-import asyncio
 from typing import Dict, List, Optional, Union
-import uuid
 import http.client
 
 

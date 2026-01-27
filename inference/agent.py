@@ -4,7 +4,6 @@ import os
 from pathlib import Path
 import traceback
 import time
-import asyncio
 from typing import Dict, List, Optional, Union
 from base_tool import (
     Message, 
@@ -13,7 +12,6 @@ from base_tool import (
 from openai import OpenAI
 from transformers import AutoTokenizer 
 from datetime import datetime
-from pydemo.common.polaris_helper import PolarisHelper
 
 from prompt import *
 from supervisor import Supervisor
@@ -254,11 +252,6 @@ class Agent:
                 else:
                     print(f"[Memory] Memory Updtae Error: {e}, {traceback.format_exc()}")
                     return
-    
-    async def find_one_address(self, namespace: str, service_name: str) -> str:
-        polaris_helper = PolarisHelper()
-        node = polaris_helper.find_one_node(namespace, service_name, env_name="test") # setname
-        return node.address
         
     async def _run(self, data: str, model: str, **kwargs) -> List[List[Message]]:
         """Agent 主循环：驱动推理、解析工具调用并组装最终结果。"""
