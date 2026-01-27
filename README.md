@@ -38,14 +38,14 @@ We deployed Yunque DeepResearch in the challenging domain of **Intelligent Conte
 
 <div style="display: flex; justify-content: space-between; gap: 10px;">
   <div style="width: 49%;">
-    <video src="https://github.com/user-attachments/assets/066d311c-e7db-4f69-aac1-6b3027401de4" controls width="100%"></video>
+    <video src="https://github.com/user-attachments/assets/f4ae278a-726c-41e8-aece-6cc979c1fd70" controls width="100%"></video>
     <p align="center">
       <b>Case 1: Automated Pre-labeling</b><br>
       <i>案例 1：自动化预标注</i>
     </p>
   </div>
   <div style="width: 49%;">
-    <video src="assets/gui3-1.mp4" controls width="100%"></video>
+    <video src="https://github.com/user-attachments/assets/285a5153-1759-4c18-a830-560eb0ec21ce" controls width="100%"></video>
     <p align="center">
       <b>Case 2: Human Decision Verification</b><br>
       <i>案例 2：校验人审误标</i>
